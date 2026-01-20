@@ -21,7 +21,7 @@ with st.form("input_form", clear_on_submit=True):
     submitted_zip = st.form_submit_button("住所を検索")
     address = ""
     if zipcode:
-        url = f"https://zipcloud.ibsnet.co.jp{zipcode}"
+        url = f"https://zipcloud.ibsnet.co.jp/api/search?zipcode={zipcode}"
         res = requests.get(url).json()
         if res["results"]:
             r = res["results"][0]
